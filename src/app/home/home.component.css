@@ -1,0 +1,38 @@
+@keyframes fadeInSlideIn {
+    0% {
+      transform: translateX(30%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .animate-fadeInSlideIn {
+    animation: fadeInSlideIn 1s ease-in-out forwards;
+  }
+
+  .custom-shape-divider-bottom-1719935760 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1719935760 svg {
+    position: relative;
+    display: block;
+    width: calc(268% + 1.3px);
+    height: 500px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1719935760 .shape-fill {
+    fill: #F31A1A;
+    opacity: 0.6;
+}
+  
+  

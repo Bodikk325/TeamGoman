@@ -1,0 +1,103 @@
+<header
+    class="fixed top-0 left-0 w-full bg-white shadow-md transform transition-transform duration-300 ease-in-out z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex-shrink-0 flex items-center">
+                <a href=""><span class="font-bold text-xl text-[#F31A1A]">TEAMGOMAN</span></a>
+            </div>
+            <div class="hidden md:flex space-x-4 items-center">
+                <a href="https://www.facebook.com/profile.php?id=61553220255175" class="text-gray-800 hover:text-gray-600"><img class="w-6 h-6" src="assets/facebook.svg"
+                        alt="facebook"></a>
+                <a href="https://www.instagram.com/teamgoman/" class="text-gray-800 hover:text-gray-600"><img class="w-6 h-6" src="assets/instagram.svg"
+                        alt="instagram"></a>
+            </div>
+            <div class="md:hidden flex items-center">
+                <button (click)="toggleMobileMenu()"
+                    class="text-gray-800 hover:text-gray-600 focus:outline-none focus:text-gray-600">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="mobileMenuOpen" class="md:hidden">
+        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+            <div class="flex flex-row">
+                <img class="w-6 h-6" src="assets/facebook.svg" alt="facebook">
+                <span class="ml-10">Facebook</span>
+            </div>
+        </a>
+        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">
+            <div class="flex flex-row">
+                <img class="w-6 h-6" src="assets/instagram.svg" alt="instagram">
+                <span class="ml-10">Instagram</span>
+            </div>
+        </a>
+    </div>
+</header>
+
+<div class="container mx-auto p-4 mt-32">
+    <div class="card bg-white shadow-lg rounded-lg overflow-hidden w-full">
+        <div class="card-header p-4 bg-white text-black cursor-pointer flex flex-col md:flex-row items-center justify-between" (click)="toggleRenatoResults()">
+            <div class="flex flex-col md:flex-row items-center mb-4 md:mb-0 justify-between w-full">
+                <h2 class="text-2xl text-center md:text-left order-2 md:order-1 mt-10 md:mt-0">Góman Renátó,<br> a  <span class="text-[#F31A1A] font-bold">TEAMGOMAN</span> vezetőjének eredményei</h2>
+                <img src="assets/renato_results.jpg" alt="Emlékezetes esemény" class="shadow-md w-32 h-32 md:w-48 md:h-48 object-cover rounded-full ml-4 order-1 md:order-2">
+            </div>
+        </div>
+        <div *ngIf="showRenatoResults" class="card-body relative p-4">
+            <div *ngFor="let result of results" class="result-item mb-4 flex flex-col md:flex-row justify-around items-center border-b pb-4 text-center">
+                <app-gallery class="w-[20rem] xl:w-[35rem]" [images]="result.images"></app-gallery>
+                <div class="result-info w-[20rem]">
+                    <h3 class="text-xl font-semibold">{{ result.title }}</h3>
+                    <p class="mt-4">{{ result.description }}</p>
+                </div>
+            </div>
+            <img (click)="toggleRenatoResults()" class="fixed right-5 bottom-5 w-10 h-10 border-[1px] rounded-full p-2 transform hover:translate-y-[-5px] hover:cursor-pointer transition border-solid border-black" src="assets/arrow_up.svg" alt="Arrow Up">
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto p-4">
+    <p>A csapat eredményeinek feltöltése folyamatban van..</p>
+
+</div>
+
+<div class="container mx-auto p-4 mt-32" *ngIf="false">
+    <div class="card bg-white shadow-lg rounded-lg overflow-hidden w-full">
+        <div class="card-header p-4 bg-white text-black cursor-pointer flex flex-col md:flex-row items-center justify-between" (click)="toggleTeamResults()">
+            <div class="flex flex-col md:flex-row items-center mb-4 md:mb-0 justify-between w-full">
+                <h2 class="text-2xl text-center md:text-left order-2 md:order-1 mt-10 md:mt-0">A <span class="text-[#F31A1A] font-bold">TEAMGOMAN</span> csapat eredményei</h2>
+                <img src="assets/win.webp" alt="Emlékezetes esemény" class="shadow-md w-32 h-32 md:w-48 md:h-48 object-cover rounded-full ml-4 order-1 md:order-2">
+            </div>
+        </div>
+        <div *ngIf="showTeamResults" class="card-body relative p-4">
+            <div *ngFor="let result of teamResults" class="result-item mb-4 flex flex-col md:flex-row justify-around items-center border-b pb-4 text-center">
+                <img class="w-[20rem] xl:w-[35rem]" [src]="result.images[0]" />
+                <div class="result-info  w-[20rem]">
+                    <h3 class="text-xl font-semibold">{{ result.title }}</h3>
+                    <p class="mt-4">{{ result.description }}</p>
+                </div>
+            </div>
+            <div class="2xl:ml-32">
+                <p class="text-left text-xl mt-20 mb-10">TOVÁBBI VERSENYZŐINK</p>
+                <p class="mt-5 text-left">Pallai Mihály</p>
+                <p class="mt-5 text-left">Fazekas Bálint</p>
+                <p class="mt-5 text-left">Herczeg Levente</p>
+                <p class="mt-5 text-left">Pallos Márton</p>
+                <p class="mt-5 text-left">Gábor László</p>
+                <p class="mt-5 text-left">Kovács Endre</p>
+            </div>
+            <p class="2xl:ml-32 text-xl mt-10">
+                Nálunk a 41-50 éves kategóriából is szállnak még ringbe! <span class="font-bold">A sportolás
+                    megfiatalít!</span>
+            </p>    
+            <img (click)="toggleTeamResults()" class="fixed right-5 bottom-5 w-10 h-10 border-[1px] rounded-full p-2 transform hover:translate-y-[-5px] hover:cursor-pointer transition border-solid border-black" src="assets/arrow_up.svg" alt="Arrow Up">
+        </div>
+    </div>
+</div>
+
+
+  

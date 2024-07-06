@@ -1,0 +1,13 @@
+<div class="relative w-full max-w-4xl mx-auto overflow-hidden">
+  <div class="flex transition-transform duration-500 ease-in-out" [style.transform]="transformStyle">
+    <div *ngFor="let image of images" class="w-full flex-shrink-0">
+      <img [src]="image" class="w-full xl:w-[35rem] object-cover h-[10rem] sm:h-[15rem] md:h-[35rem] rounded-md" alt="Kép a versenyről">
+    </div>
+  </div>
+  <button (click)="prev()" class="absolute top-1/2 left-0 transform md:hover:translate-y-[-2rem] transition  md:h-12 md:w-12 ml-2 -translate-y-1/2 flex justify-center items-center bg-white rounded-full  text-black p-2 ">
+    <img src="assets/arrow_left.svg" alt="Balra nyíl">
+  </button>
+  <button (click)="next()" class="absolute top-1/2 right-0 transform md:hover:translate-y-[-2rem] transition md:h-12 md:w-12 mr-2 -translate-y-1/2 flex justify-center items-center bg-white rounded-full text-black p-2">
+    <img src="assets/arrow_right.svg" alt="Jobbra nyíl">
+  </button>
+</div>

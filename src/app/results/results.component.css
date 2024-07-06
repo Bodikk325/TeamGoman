@@ -1,0 +1,6 @@
+.arrow-up {
+    position: absolute;
+    right: 10px;
+    display: none;
+    cursor: pointer;
+  }
